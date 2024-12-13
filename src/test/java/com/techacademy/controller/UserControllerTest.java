@@ -62,6 +62,9 @@ class UserControllerTest {
         assertEquals("キラメキ太郎", user.getName());
     }
 
+    @Test
+    @DisplayName("User更新画面")
+    @WithMockUser
     void testGetList() throws Exception {
         // HTTPリクエストに対するレスポンスの検証
         MvcResult result = mockMvc.perform(get("/user/list")) // URLにアクセス
@@ -82,11 +85,11 @@ class UserControllerTest {
         assertEquals("キラメキ太郎",user1.getName());
 
         User user2 = userList.get(1);
-        assertEquals(2,user1.getId());
+        assertEquals(2,user2.getId());
         assertEquals("キラメキ次郎",user2.getName());
 
         User user3 = userList.get(2);
-        assertEquals(3,user1.getId());
+        assertEquals(3,user3.getId());
         assertEquals("キラメキ花子",user3.getName());
     }
 
